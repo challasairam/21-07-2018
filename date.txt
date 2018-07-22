@@ -1,0 +1,7 @@
+DateTimeFormatter formatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate fdate=LocalDate.parse(bookingDetails.getBookedFromDate(),formatter);
+		LocalDate tdate=LocalDate.parse(bookingDetails.getBookedToDate(),formatter);
+		LocalDate cdate=LocalDate.now();
+		 if(!((fdate.isAfter(cdate) || fdate.isEqual(cdate)) && (tdate.isAfter(cdate) || tdate.isEqual(cdate)) && ((fdate.isBefore(tdate) || (fdate.isEqual(tdate)))))){
+			 errors.rejectValue("bookedFromDate",null,"starting date must be greater than current date and less than ending date");
+}
